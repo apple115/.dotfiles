@@ -1,0 +1,3 @@
+[submodule "config/waybar/waybar-netease-lyrics-show"]
+	path = config/waybar/waybar-netease-lyrics-show
+	url = git@github.com:apple115/waybar-netease-lyrics-show.git
