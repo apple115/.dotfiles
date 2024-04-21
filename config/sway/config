@@ -71,6 +71,7 @@ for_window [instance="wechat"] floating enable
 #
     # Start a terminal
     bindsym $mod+Return exec kitty
+    bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy
 
     # Kill focused window
     bindsym $mod+q kill
