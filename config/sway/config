@@ -6,6 +6,8 @@
 exec wl-paste -t text --watch clipman store --no-persist
 exec fcitx5
 exec nutstore
+exec wechat-universal
+exec eudic
 exec emacs --daemon
 
 ### Variables
@@ -66,13 +68,15 @@ output HDMI-A-1 bg /home/apple115/.config/wallpaper/2k/wallhaven-kx6e7d_2560x144
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 for_window [instance="wechat"] floating enable
+for_window [instance="feh"] floating enable
 
 ### Key bindings
 #
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec kitty
+    bindsym $mod+Return exec emacsclient -nc
+    bindsym $mod+t exec kitty
     bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy
 
     # Kill focused window
