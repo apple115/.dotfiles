@@ -31,6 +31,8 @@ set $menu dmenu_path | wmenu | xargs swaymsg exec --
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 
 output * adaptive_sync on
+output HDMI-A-1 mode 2560x1440@143.995Hz
+
 output eDP-1 bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 output HDMI-A-1 bg /home/apple115/.config/wallpaper/2k/wallhaven-kx6e7d_2560x1440.png fill
 
