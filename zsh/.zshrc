@@ -22,9 +22,12 @@ eval "$(direnv hook zsh)"
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
 
+
+
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 source /usr/share/nvm/init-nvm.sh
 source ~/.config/zsh-plugins/ails.zsh
 source ~/.config/zsh-plugins/emacs-vterm.zsh
+source ~/.config/zsh-plugins/python.zsh
 echo "Welcome to your custom shell, $USER!"
