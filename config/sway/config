@@ -6,9 +6,10 @@
 exec wl-paste -t text --watch clipman store --no-persist
 exec fcitx5
 exec nutstore
-exec wechat-universal
-exec eudic
-exec emacs --daemon
+exec mako
+exec rog-control-center
+exec emacs --name emacs_float
+
 
 ### Variables
 #
@@ -72,12 +73,15 @@ output HDMI-A-1 bg /home/apple115/.config/wallpaper/2k/wallhaven-kx6e7d_2560x144
 for_window [instance="wechat"] floating enable
 for_window [instance="feh"] floating enable
 
+for_window [instance="^emacs_float"] floating enable,resize set 1920 1080,move to scratchpad,sticky enable,opacity 0.75
+
+bindsym $mod+Return [instance ="emacs_float"] scratchpad show
+
 ### Key bindings
 #
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec emacsclient -nc
     bindsym $mod+t exec kitty
     bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy
 
@@ -88,7 +92,6 @@ for_window [instance="feh"] floating enable
     #bindsym $mod+d exec $menu
 
     bindsym Alt+space exec fuzzel
-    bindsym $mod+o exec emacsclient -nc
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -129,6 +132,8 @@ for_window [instance="feh"] floating enable
 #
 # Workspaces:
 #
+
+    bindsym $mod+apostrophe workspace back_and_forth
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -163,8 +168,8 @@ for_window [instance="feh"] floating enable
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
+#    bindsym $mod+s layout stacking
+#    bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
