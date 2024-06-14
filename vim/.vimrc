@@ -1,4 +1,5 @@
 set clipboard=unnamedplus
+set clipboard+=unnamed
 set number
 set autoindent
 set tabstop=4
@@ -10,7 +11,3 @@ nnoremap <silent> <C-h> <C-w>h
 nnoremap <silent> <C-j> <C-w>j
 nnoremap <silent> <C-k> <C-w>k
 nnoremap <silent> <C-l> <C-w>l
-
-
-
-
