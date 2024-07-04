@@ -3,12 +3,15 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
-exec wl-paste -t text --watch clipman store --no-persist
+exec wl-paste --watch cliphist store
 exec fcitx5
 exec nutstore
 exec mako
+exec blueman-managew
+exec Qcm
+exec firefox
 exec rog-control-center
-exec emacs --name emacs_float
+#exec emacs --name emacs_float
 
 
 ### Variables
@@ -48,10 +51,10 @@ output HDMI-A-1 bg /home/apple115/.config/wallpaper/2k/wallhaven-kx6e7d_2560x144
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -60,6 +63,12 @@ output HDMI-A-1 bg /home/apple115/.config/wallpaper/2k/wallhaven-kx6e7d_2560x144
 ### Input configuration
 #
 # Example configuration:
+
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
+}
+
 #
 #   input "2:14:SynPS/2_Synaptics_TouchPad" {
 #       dwt enabled
@@ -74,6 +83,9 @@ for_window [instance="wechat"] floating enable
 for_window [instance="feh"] floating enable
 
 for_window [instance="^emacs_float"] floating enable,resize set 1920 1080,move to scratchpad,sticky enable,opacity 0.75
+for_window [app_id="blueman-manager"] move window to workspace 9
+for_window [app_id="io.github.hypengw.Qcm"] move window to workspace 9
+for_window [app_id="firefox"] move window to workspace 3
 
 bindsym $mod+Return [instance ="emacs_float"] scratchpad show
 
@@ -87,6 +99,8 @@ bindsym $mod+Return [instance ="emacs_float"] scratchpad show
 
     # Kill focused window
     bindsym $mod+q kill
+
+    bindsym Ctrl+semicolon exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy && wl-paste
 
     # Start your launcher
     #bindsym $mod+d exec $menu

@@ -150,7 +150,7 @@
         "on-click": "pavucontrol"
     },
     "custom/lyrics":{
-        "format": "{icon} {}",
+        "format": "lyrics: {}",
         "format-icons": ["", ""],
         "exec":"~/.config/waybar/waybar-netease-lyrics-show/song.py"
     }
