@@ -5,8 +5,8 @@
     // "width": 1280, // Waybar width
     //"spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
-    "modules-center": ["sway/window"],
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad","sway/window"],
+    "modules-center": [],
     //"modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery", "battery#bat2", "clock", "tray"],
     "modules-right": ["custom/lyrics", "idle_inhibitor", "temperature", "cpu", "memory","network", "pulseaudio", "backlight", "keyboard-state", "battery", "battery#bat2", "tray", "clock"],
     // Modules configuration
@@ -150,8 +150,12 @@
         "on-click": "pavucontrol"
     },
     "custom/lyrics":{
-        "format": "lyrics: {}",
+        "format": "{}",
         "format-icons": ["", ""],
+        "on-scroll-up" : "playerctl --player=NeteaseCloudMusicGtk4 next",
+        "on-scroll-down" : "playerctl --player=NeteaseCloudMusicGtk4 previous",
+        "on-click": "playerctl --player=NeteaseCloudMusicGtk4 play-pause",
         "exec":"~/.config/waybar/waybar-netease-lyrics-show/song.py"
     }
+
 }

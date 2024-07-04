@@ -8,10 +8,11 @@ exec fcitx5
 exec nutstore
 exec mako
 exec blueman-managew
-exec Qcm
+#exec Qcm
+exec netease-cloud-music-gtk4
+exec waylyrics
 exec firefox
-exec rog-control-center
-#exec emacs --name emacs_float
+exec emacs --name emacs_apple115
 
 
 ### Variables
@@ -82,9 +83,11 @@ input type:touchpad {
 for_window [instance="wechat"] floating enable
 for_window [instance="feh"] floating enable
 
-for_window [instance="^emacs_float"] floating enable,resize set 1920 1080,move to scratchpad,sticky enable,opacity 0.75
-for_window [app_id="blueman-manager"] move window to workspace 9
-for_window [app_id="io.github.hypengw.Qcm"] move window to workspace 9
+for_window [instance="^emacs_apple115"] move window to workspace 2
+for_window [app_id="blueman-manager"] move window to workspace 1
+for_window [app_id="io.github.hypengw.Qcm"] move window to workspace 1
+for_window [app_id="com.gitee.gmg137.NeteaseCloudMusicGtk4"] move window to workspace 1
+for_window [app_id="io.github.waylyrics.Waylyrics"] floating enable,move windows to workspace 2
 for_window [app_id="firefox"] move window to workspace 3
 
 bindsym $mod+Return [instance ="emacs_float"] scratchpad show
@@ -99,12 +102,16 @@ bindsym $mod+Return [instance ="emacs_float"] scratchpad show
 
     # Kill focused window
     bindsym $mod+q kill
+    #volume lower
+    bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+    #volume raise
+    bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+
 
     bindsym Ctrl+semicolon exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy && wl-paste
 
     # Start your launcher
     #bindsym $mod+d exec $menu
-
     bindsym Alt+space exec fuzzel
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -128,7 +135,7 @@ bindsym $mod+Return [instance ="emacs_float"] scratchpad show
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
+    bindsym $mod+Left focparu -S netease-cloud-music-gtk4us left
     bindsym $mod+Down focus down
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
