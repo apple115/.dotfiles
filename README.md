@@ -1,9 +1,9 @@
 # apple115's dotfiles
 
 ## 图片
-![图片1][./images/image1.png]
-![图片2][./images/image2.png]
-![图片3][./images/image3.png]
+![图片1](./images/image1.png)
+![图片2](./images/image2.png)
+![图片3](./images/image3.png)
 
 
 ## 基本信息
