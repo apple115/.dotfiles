@@ -3,17 +3,19 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec wl-paste --watch cliphist store
 exec fcitx5
 exec nutstore
 exec mako
+exec anki
 exec blueman-managew
 #exec Qcm
-exec netease-cloud-music-gtk4
-exec waylyrics
+# exec netease-cloud-music-gtk4
+# exec waylyrics
 
-exec firefox
-exec emacs --name emacs_apple115
+# exec firefox
+exec emacs --daemon
 
 
 ### Variables
@@ -37,10 +39,11 @@ set $menu dmenu_path | wmenu | xargs swaymsg exec --
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 
 output * adaptive_sync on
-output HDMI-A-1 mode 2560x1440@143.995Hz
+output HDMI-A-1 mode 2560x1600 pos 1920 0
 
 output eDP-1 bg /home/apple115/.config/wallpaper/1080/gruvbox--1-1080.png fill
-output HDMI-A-1 bg /home/apple115/.config/wallpaper/2k/wallhaven-kx6e7d_2560x1440.png fill
+output HDMI-A-1 bg /home/apple115/.config/wallpaper/2k/wallhaven-kx6e7d_2560x1440.png fill  resolution 2560x1600
+
 
 #
 # Example configuration:
@@ -83,19 +86,19 @@ input type:touchpad {
 for_window [instance="wechat"] floating enable
 for_window [instance="feh"] floating enable
 
-for_window [instance="^emacs_apple115"] move window to workspace 2
+# for_window [instance="^emacs_apple115"] move window to workspace 2
 for_window [app_id="blueman-manager"] move window to workspace 1
 for_window [app_id="io.github.hypengw.Qcm"] move window to workspace 1
 for_window [app_id="com.gitee.gmg137.NeteaseCloudMusicGtk4"] move window to workspace 1
 for_window [app_id="io.github.waylyrics.Waylyrics"] floating enable,move windows to workspace 2
-for_window [app_id="firefox"] move window to workspace 3
-
-bindsym $mod+Return [instance ="emacs_float"] scratchpad show
+# for_window [app_id="firefox"] move window to workspace 3
 
 ### Key bindings
 #
 # Basics:
 #
+    bindsym $mod+Return exec emacsclient -c -e '(my-vterm-apple115-switch)'
+
     # Start a terminal
     bindsym $mod+t exec kitty
     bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy
@@ -108,7 +111,7 @@ bindsym $mod+Return [instance ="emacs_float"] scratchpad show
     bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 
 
-    bindsym Ctrl+semicolon exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy && wl-paste
+    # bindsym Ctrl+semicolon exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy && wl-paste
 
     # Start your launcher
     #bindsym $mod+d exec $menu
@@ -135,7 +138,7 @@ bindsym $mod+Return [instance ="emacs_float"] scratchpad show
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focparu -S netease-cloud-music-gtk4us left
+    bindsym $mod+Left focus left
     bindsym $mod+Down focus down
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
@@ -154,7 +157,8 @@ bindsym $mod+Return [instance ="emacs_float"] scratchpad show
 # Workspaces:
 #
 
-    bindsym $mod+apostrophe workspace back_and_forth
+    # bindsym Ctrl+apostrophe workspace back_and_forth
+    bindsym Ctrl+semicolon workspace back_and_forth
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2

@@ -1,10 +1,10 @@
-load_plugin() {
-    local plugin_path="$1"
-    if [ -f "$plugin_path" ]; then
-        source "$plugin_path"
-    else
-        echo "Error:file '$plugin_path' not found."
-    fi
+load_plugin(){
+local plugin_path="$1"
+if [ -f "$plugin_path" ]; then
+    source "$plugin_path"
+else
+    echo "Error:file '$plugin_path' not found."
+fi
 }
 
 # 使用这个函数来加载你的插件
@@ -21,8 +21,6 @@ eval "$(atuin init zsh)"
 
 
 export AM_HOME=/home/apple115/project/cslearn/njuos/os-workbench/abstract-machine
-
-
 
 zstyle ':zim:zmodule' use 'degit'
 ZIM_HOME=~/.zim
@@ -44,4 +42,11 @@ fi
 
 load_plugin "${ZIM_HOME}/init.zsh"
 
+
 echo "Welcome to your custom shell, $USER!"
+
+vterm_prompt_end() {
+    vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
+}
+setopt PROMPT_SUBST
+PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'

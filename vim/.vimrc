@@ -16,5 +16,3 @@ syntax on
 
 nnoremap H ^
 nnoremap L $
-set backspace=2
-
