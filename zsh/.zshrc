@@ -50,3 +50,6 @@ vterm_prompt_end() {
 }
 setopt PROMPT_SUBST
 PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'
+
+# Created by `pipx` on 2024-10-08 01:36:28
+export PATH="$PATH:/home/apple115/go/bin/gopls"
