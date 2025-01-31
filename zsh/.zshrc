@@ -53,3 +53,9 @@ PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'
 
 # Created by `pipx` on 2024-10-08 01:36:28
 export PATH="$PATH:/home/apple115/go/bin/gopls"
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/apple115/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/apple115/.config/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+

@@ -90,14 +90,18 @@ for_window [instance="feh"] floating enable
 for_window [app_id="blueman-manager"] move window to workspace 1
 for_window [app_id="io.github.hypengw.Qcm"] move window to workspace 1
 for_window [app_id="com.gitee.gmg137.NeteaseCloudMusicGtk4"] move window to workspace 1
-for_window [app_id="io.github.waylyrics.Waylyrics"] floating enable,move windows to workspace 2
+# for_window [app_id="io.github.waylyrics.Waylyrics"] floating enable,move windows to workspace 2
+for_window [app_id="io.github.waylyrics.Waylyrics"] floating enable,sticky enable,move position 975 -50
+
 # for_window [app_id="firefox"] move window to workspace 3
 
 ### Key bindings
 #
 # Basics:
 #
-    bindsym $mod+Return exec emacsclient -c -e '(my-vterm-apple115-switch)'
+    # bindsym $mod+Return exec emacsclient -c -e '(my-vterm-apple115-switch)'
+
+    bindsym $mod+Return exec emacsclient -nc
 
     # Start a terminal
     bindsym $mod+t exec kitty
