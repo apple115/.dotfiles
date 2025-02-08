@@ -15,7 +15,7 @@ exec blueman-managew
 # exec waylyrics
 
 # exec firefox
-exec emacs --daemon
+# exec emacs --daemon
 
 
 ### Variables
@@ -39,7 +39,8 @@ set $menu dmenu_path | wmenu | xargs swaymsg exec --
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 
 output * adaptive_sync on
-output HDMI-A-1 mode 2560x1600 pos 1920 0
+# output HDMI-A-1 mode 2560x1600 pos 1920 0
+output HDMI-A-1 mode 2560x1600 transform 90 pos 1920 0
 
 output eDP-1 bg /home/apple115/.config/wallpaper/1080/gruvbox--1-1080.png fill
 output HDMI-A-1 bg /home/apple115/.config/wallpaper/2k/wallhaven-kx6e7d_2560x1440.png fill  resolution 2560x1600
@@ -57,7 +58,9 @@ output HDMI-A-1 bg /home/apple115/.config/wallpaper/2k/wallhaven-kx6e7d_2560x144
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 100 'swaylock -f '\
+	timeout 1800 'swaylock -f' \
+	timeout 1805 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"'
 
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
