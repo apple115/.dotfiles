@@ -86,7 +86,7 @@ input type:touchpad {
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
-# for_window [instance="wechat"] floating enable
+for_window [instance="wechat"] floating enable
 for_window [instance="feh"] floating enable
 
 # for_window [instance="^emacs_apple115"] move window to workspace 2
